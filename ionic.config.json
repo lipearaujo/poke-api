@@ -1,0 +1,8 @@
+{
+  "name": "PokeAPI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "c12277cb"
+}

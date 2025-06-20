@@ -1,0 +1,36 @@
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .card {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .card {
+    justify-content: center;
+  }
+}

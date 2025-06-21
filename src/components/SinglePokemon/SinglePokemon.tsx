@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import instance from "../utils/axios";
 import { Link } from "react-router-dom";
+import UseGetSinglePokemon from "../../hooks/UseGetSinglePokemon";
 import "./SinglePokemon.css";
-import { Pokemon } from "../../types/pokemon-types";
-import UseGetSinglePokemon from "../hooks/UseGetSinglePokemon";
+import { useEffect } from "react";
 
 type Props = {};
 
 const SinglePokemon = (props: Props) => {
-  const { pokemon } = UseGetSinglePokemon();
+  const { pokemon, fetchSinglePokemon } = UseGetSinglePokemon();
+
+  useEffect(() => {
+    fetchSinglePokemon();
+  }, [pokemon]);
 
   return (
     <div className="container single-pokemon-container">

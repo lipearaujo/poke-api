@@ -1,14 +1,19 @@
 import { Pokemon } from "../../types/pokemon-types";
 import { Link } from "react-router-dom";
 import "./SingleCard.css";
-import UseGetSingleCardPokemon from "../hooks/UseGetSingleCardPokemon";
+import UseGetSingleCardPokemon from "../../hooks/UseGetSingleCardPokemon";
+import { useEffect } from "react";
 
 type Props = {
   pokemon: Pokemon;
 };
 
 const SingleCard = ({ pokemon }: Props) => {
-  const { poke } = UseGetSingleCardPokemon({ pokemon });
+  const { poke, fetchSinglePokemon } = UseGetSingleCardPokemon();
+
+  useEffect(() => {
+    fetchSinglePokemon(pokemon);
+  }, [poke]);
 
   return (
     <Link to={`/pokemon/${pokemon.name}`} className="single-card">

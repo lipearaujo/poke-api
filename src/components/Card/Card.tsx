@@ -1,9 +1,14 @@
+import { useEffect } from "react";
+import UseGetPokemons from "../../hooks/UseGetPokemons";
 import SingleCard from "../SingleCard/SingleCard";
-import UseGetPokemons from "../hooks/UseGetPokemons";
 import "./Card.css";
 
 const Card = () => {
-  const { pokemon } = UseGetPokemons();
+  const { pokemon, fetchPokemon } = UseGetPokemons();
+
+  useEffect(() => {
+    fetchPokemon();
+  }, [pokemon]);
 
   return (
     <div className="card">

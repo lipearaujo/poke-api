@@ -4,18 +4,12 @@ import instance from "../utils/axios";
 import { Link } from "react-router-dom";
 import "./SinglePokemon.css";
 import { Pokemon } from "../../types/pokemon-types";
+import UseGetSinglePokemon from "../hooks/UseGetSinglePokemon";
 
 type Props = {};
 
 const SinglePokemon = (props: Props) => {
-  const [pokemon, setPokemon] = useState<Pokemon | undefined>();
-  const params = JSON.stringify(useParams().name).replaceAll(/"/g, "");
-
-  useEffect(() => {
-    instance.get(`/pokemon/${params}`).then((response) => {
-      setPokemon(response.data);
-    });
-  }, []);
+  const { pokemon } = UseGetSinglePokemon();
 
   return (
     <div className="container single-pokemon-container">

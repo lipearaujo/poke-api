@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
 import { Pokemon } from "../../types/pokemon-types";
-import "./SingleCard.css";
 import { Link } from "react-router-dom";
-import instance from "../utils/axios";
+import "./SingleCard.css";
+import UseGetSingleCardPokemon from "../hooks/UseGetSingleCardPokemon";
 
 type Props = {
   pokemon: Pokemon;
 };
 
 const SingleCard = ({ pokemon }: Props) => {
-  const [poke, setPoke] = useState<Pokemon | undefined>();
-
-  useEffect(() => {
-    instance.get(`/pokemon/${pokemon.name}`).then((response) => {
-      setPoke(response.data);
-    });
-  }, []);
+  const { poke } = UseGetSingleCardPokemon({ pokemon });
 
   return (
     <Link to={`/pokemon/${pokemon.name}`} className="single-card">
